@@ -1,11 +1,8 @@
 import GridPattern from "@/components/magicui/animated-grid-pattern";
-import { cn } from "@/lib/utils";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { formSchema, FormSchema } from "@/schemas/formSchema";
-import { Controller, useForm } from "react-hook-form";
-import axios from "axios";
-import { Label } from "@/components/ui/label";
+import SinusoidLogo from "@/components/SiusoidLogo/SinuLogoComponent";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -15,14 +12,51 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { FORM_DATA_TEMPLATE, TEAM_ARRAY } from "./utils";
-import { useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import SinusoidLogo from "@/components/SiusoidLogo/SinuLogoComponent";
+import { cn } from "@/lib/utils";
+import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const Apply: React.FC = () => {
+  const FORM_DATA_TEMPLATE = {
+    name: "",
+    emailId: "",
+    whatsappId: "",
+    teams: [
+      {
+        teamName: "",
+        exp: "",
+        detailedExperience: "",
+        enabled: false,
+      },
+    ],
+    qNa: [
+      {
+        question: "Why do you want to join siNUsoid?",
+        answer: "",
+      },
+    ],
+  };
+
+  const TEAM_TEMPLATE = {
+    teamName: "",
+    exp: "",
+    detailedExperience: "",
+  };
+
+  const TEAM_ARRAY = [
+    { teamId: "capture", label: "Capture" },
+    { teamId: "content", label: "Content" },
+    { teamId: "creative", label: "Creative" },
+    { teamId: "design", label: "Design" },
+    { teamId: "eventCuration", label: "Event Curation" },
+    { teamId: "marketing", label: "Marketing" },
+    { teamId: "operation", label: "Operations" },
+    { teamId: "publicRelation", label: "Public Relations" },
+    { teamId: "sponsorship", label: "Sponsorship" },
+    { teamId: "tech", label: "Tech" },
+  ];
   const [formData, setFormData] = useState(FORM_DATA_TEMPLATE);
   const [teamCount, setTeamCount] = useState(1);
   const [teamArray, setTeamArray] = useState(TEAM_ARRAY);
@@ -60,14 +94,13 @@ const Apply: React.FC = () => {
   }
 
   const router = useRouter();
-  
+
   const onSubmit = async () => {
     try {
       const res = await axios.post("https://api.sinusoid.in/submit", formData);
-      if (res.data.success === '2000') {
-        router.push('/success');
+      if (res.data.success === "2000") {
+        router.push("/success");
       }
-        
     } catch (error) {
       console.error(error);
       alert("Failed to submit form");
