@@ -4,11 +4,24 @@ import '@/styles/global.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
+import Head from "next/head";
+
+const pageTitle = "Volunteers Form | siNusoid v8";
+const pageDescription = "Become an official volunteer for siNUsoid today!";
+const faviconPath = "/sinuLogo.png";
+
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <div className={inter.className}>
-      <Component {...pageProps} />
-    </div>
+    <>
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="icon" href={faviconPath} />
+      </Head>
+      <div className={inter.className}>
+        <Component {...pageProps} />
+      </div>
+    </>
   );
 };
 
