@@ -300,15 +300,14 @@ const Apply: React.FC = () => {
             placeholder="enter your answer"
           />
         </div>
-        {formFilled() && (
-          <Button
-            variant={"default"}
-            className="bg-white text-black dark:bg-black dark:text-white"
-            onClick={onSubmit}
-          >
-            Submit
-          </Button>
-        )}
+        <Button
+          disabled={!formFilled()}
+          variant={"default"}
+          className="bg-white text-black dark:bg-black dark:text-white"
+          onClick={onSubmit}
+        >
+          Submit
+        </Button>
       </div>
       <GridPattern
         numSquares={30}
