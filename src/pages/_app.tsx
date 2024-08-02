@@ -8,7 +8,7 @@ import Head from "next/head";
 
 const pageTitle = "Volunteers Form | siNusoid v8";
 const pageDescription = "Become an official volunteer for siNUsoid today!";
-const faviconPath = "/sinuLogo.png";
+const faviconPath = "/sinuLogo.webp";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
