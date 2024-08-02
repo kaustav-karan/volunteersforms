@@ -8,7 +8,12 @@ interface ImageProps {
 const SinusoidLogo: React.FC<ImageProps> = ({ className }) => {
     return (
       <div className={className}>
-        <Image src="/SinuLogo.webp" alt={"sinuLogo"} />
+        <Image
+          src="https://api.sinusoid.in/sinulogo"
+          alt={"sinuLogo"}
+          width={"100"}
+          height={"100"}
+        />
       </div>
     );
 };
