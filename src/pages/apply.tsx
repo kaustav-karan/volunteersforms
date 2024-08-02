@@ -107,9 +107,27 @@ const Apply: React.FC = () => {
     }
   };
   return (
-    <div className="relative flex h-[100vh] w-full items-center justify-center overflow-hidden bg-background bg-black text-white p-20 md:shadow-xl sm:text-xl ">
-      <SinusoidLogo className="absolute top-0 justify-center p-4  shadow-md z-50 h-40 w-40" />
-      <div className="flex flex-col lg:w-[40vw] md:h-[70vh] md:w-[80vw] sm:h-[70vh] sm:w-[80vw] xl:text-5xl gap-3 justify-center z-10 overflow-y-scroll my-6 px-6">
+    <div
+      className="relative flex flex-col align-middle w-full h-screen items-center justify-center overflow-hidden 
+    bg-background bg-black text-white  md:shadow-xl md:py-10 sm:text-xl py-1"
+    >
+      <div className="absolute top-0 left-0 w-full h-full z-0">
+        <GridPattern
+          numSquares={30}
+          maxOpacity={0.5}
+          duration={3}
+          repeatDelay={1}
+          className={cn(
+            "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
+            "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
+          )}
+        />
+      </div>
+      <SinusoidLogo className=" top-0 justify-center p-4 shadow-md z-50 h-20 w-20 md:h-40 md:w-40 " />
+      <div
+        className="flex flex-col flex-grow gap-6 z-10 overflow-y-scroll 
+      my-6 max-w-screen-sm w-full no-scrollbar px-5"
+      >
         <div>
           {/* <label>Name</label>
             <input className="text-black" {...register("name")} /> */}
@@ -160,7 +178,7 @@ const Apply: React.FC = () => {
             placeholder="enter your whatsapp number"
           />
         </div>
-        <div>
+        <div className="flex flex-col gap-6">
           {formData?.teams?.map((team, index) => (
             <div key={index}>
               <Label style={{ fontSize: "1.25rem" }} htmlFor="teamName">
@@ -277,7 +295,7 @@ const Apply: React.FC = () => {
               )}
             </div>
           ))}
-          {teamCount < 4 && (
+          {teamCount < 3 && (
             <Button className=" my-2" variant={"secondary"} onClick={addTeam}>
               Apply for another team
             </Button>
@@ -309,16 +327,6 @@ const Apply: React.FC = () => {
           Submit
         </Button>
       </div>
-      <GridPattern
-        numSquares={30}
-        maxOpacity={0.5}
-        duration={3}
-        repeatDelay={1}
-        className={cn(
-          "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
-          "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
-        )}
-      />
     </div>
   );
 };
