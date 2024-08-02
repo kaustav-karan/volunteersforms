@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 interface ImageProps {
@@ -7,7 +8,7 @@ interface ImageProps {
 const SinusoidLogo: React.FC<ImageProps> = ({ className }) => {
     return (
       <div className={className}>
-        <img src="/SinuLogo.webp" alt={"sinuLogo"} />
+        <Image src="/SinuLogo.webp" alt={"sinuLogo"} />
       </div>
     );
 };
