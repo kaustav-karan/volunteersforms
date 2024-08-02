@@ -7,7 +7,7 @@ class MyDocument extends Document {
         <Head>
           <meta
             name="description"
-            content="Join the Sinusoid Tech Fest as a volunteer! Gain valuable experience, network with tech enthusiasts, and help make this event a success. Sign up now to be part of an unforgettable tech journey!"
+            content="Join the siNUsoid Tech Fest as a volunteer! Gain valuable experience, network with tech enthusiasts, and help make this event a success. Sign up now to be part of an unforgettable tech journey!"
           />
           <meta name="title" content="Volunteers Form | siNUsoid v8" />
           {/* Add other meta tags here */}
