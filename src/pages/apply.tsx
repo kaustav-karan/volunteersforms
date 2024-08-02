@@ -181,9 +181,9 @@ const Apply: React.FC = () => {
                       ...prev.teams.slice(index + 1),
                     ],
                   }));
-                  setTeamArray((prev) =>
-                    prev.filter((team) => team.teamId !== e)
-                  );
+                  // setTeamArray((prev) =>
+                  //   prev.filter((team) => team.teamId !== e)
+                  // );
                 }}
                 value={formData?.teams?.[index]?.teamName}
               >
