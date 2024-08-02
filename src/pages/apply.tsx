@@ -109,7 +109,7 @@ const Apply: React.FC = () => {
   return (
     <div className="relative flex h-[100vh] w-full items-center justify-center overflow-hidden bg-background bg-black text-white p-20 md:shadow-xl sm:text-xl ">
       <SinusoidLogo className="absolute top-0 justify-center p-4  shadow-md z-50 h-40 w-40" />
-      <div className="flex flex-col lg:w-[40vw] md:h-[70vh] md:w-[80vw] sm:h-[70vh] sm:w-[80vw] xl:text-5xl gap-3 justify-center z-10 overflow-y-scroll">
+      <div className="flex flex-col lg:w-[40vw] md:h-[70vh] md:w-[80vw] sm:h-[70vh] sm:w-[80vw] xl:text-5xl gap-3 justify-center z-10 overflow-y-scroll my-6 px-6">
         <div>
           {/* <label>Name</label>
             <input className="text-black" {...register("name")} /> */}
