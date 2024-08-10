@@ -1,4 +1,5 @@
 import GridPattern from "@/components/magicui/animated-grid-pattern";
+import TypingAnimation from "@/components/magicui/typing-animation";
 import SinusoidLogo from "@/components/SiusoidLogo/SinuLogoComponent";
 import PulsatingButton from "@/components/ui/pulsating-button";
 import { cn } from "@/lib/utils";
@@ -12,16 +13,21 @@ const Home: React.FC = () => {
   return (
     <div className="relative flex flex-col h-[100vh] w-full items-center justify-center overflow-hidden bg-background bg-black text-white p-20 md:shadow-xl">
       <SinusoidLogo className="items-center w-52" />
-      <p className="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tighter">
+      {/* <p className="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tighter">
         siNUsoid
-      </p>
+      </p> */}
+      <TypingAnimation
+        className="text-3xl font-bold text-white dark:text-black z-30"
+        text="Coming Soon..."
+        duration={150}
+      />
 
-      <PulsatingButton
+      {/* <PulsatingButton
         className="my-20 z-10"
         onClick={() => router.push("/apply")}
       >
         Become a Volunteer Today!
-      </PulsatingButton>
+      </PulsatingButton> */}
       <GridPattern
         numSquares={30}
         maxOpacity={0.5}

@@ -6,8 +6,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 import Head from "next/head";
 
-const pageTitle = "Volunteers Form | siNusoid v8";
-const pageDescription = "Become an official volunteer for siNUsoid today!";
+const pageTitle = "Coming Soon | siNusoid v8";
+const pageDescription =
+  "siNUsoid is NIIT University's annual tech fest. Stay tuned for the next edition!";
 const faviconPath = "/socialLogo.jpg";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
