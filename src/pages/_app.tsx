@@ -1,29 +1,22 @@
-import { AppProps } from "next/app";
-import { Inter } from "next/font/google";
-import '@/styles/global.css';
+// src/pages/_app.tsx
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import { ThemeProvider } from "next-themes";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
-const inter = Inter({ subsets: ["latin"] });
-
-import Head from "next/head";
-
-const pageTitle = "Coming Soon | siNusoid v8";
-const pageDescription =
-  "siNUsoid is NIIT University's annual tech fest. Stay tuned for the next edition!";
-const faviconPath = "/socialLogo.jpg";
-
-const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-        <link rel="icon" href={faviconPath} />
-      </Head>
-      <div className={inter.className}>
+      <GoogleAnalytics gaId="GTM-58KNP2JR" />
+      <ThemeProvider defaultTheme="dark" attribute="class">
+        <Header />
         <Component {...pageProps} />
-      </div>
+        <Footer />
+      </ThemeProvider>
     </>
   );
-};
+}
 
 export default MyApp;

@@ -1,44 +1,38 @@
-import GridPattern from "@/components/magicui/animated-grid-pattern";
-import TypingAnimation from "@/components/magicui/typing-animation";
-import SinusoidLogo from "@/components/SiusoidLogo/SinuLogoComponent";
-import PulsatingButton from "@/components/ui/pulsating-button";
-import { cn } from "@/lib/utils";
-import { useRouter } from "next/navigation";
+import AboutSection from "@/components/AboutSection/AboutSection";
+import { FaqSection } from "@/components/FaqSection/FaqSection";
+import { FAQ_CATEGORY, FAQ_DATA } from "@/components/FaqSection/utils";
+import Hero from "@/components/Hero/Hero";
+import { SponsorMarquee } from "@/components/Marquee/marquee";
+import SEOComponent from "@/components/SEOComponent/SEOComponent";
 import React from "react";
-
+import Head from "next/head";
 
 
 const Home: React.FC = () => {
-  const router = useRouter();
   return (
-    <div className="relative flex flex-col h-[100vh] w-full items-center justify-center overflow-hidden bg-background bg-black text-white p-20 md:shadow-xl">
-      <SinusoidLogo className="items-center w-52" />
-      {/* <p className="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tighter">
-        siNUsoid
-      </p> */}
-      <TypingAnimation
-        className="text-3xl font-bold text-white dark:text-black z-30"
-        text="Coming Soon..."
-        duration={150}
+    <>
+      <SEOComponent
+        PageDescription="Discover siNUsoid, the annual tech fest of NIIT University, back for its 8th edition. Tag along for a ride filled with technology, curiosity and innovation; unleash your potential at siNUsoid v8!"
+        PageKeywords={[
+          "sinusoid",
+          "techfest",
+          "tech",
+          "fest",
+          "competitions",
+          "events",
+          "niit university",
+        ]}
+        PageOGLImage="/logo/logo.png"
+        PageTitle="siNUsoid v8 | Reflexive Retrograde"
       />
-
-      {/* <PulsatingButton
-        className="my-20 z-10"
-        onClick={() => router.push("/apply")}
-      >
-        Become a Volunteer Today!
-      </PulsatingButton> */}
-      <GridPattern
-        numSquares={30}
-        maxOpacity={0.5}
-        duration={3}
-        repeatDelay={1}
-        className={cn(
-          "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
-          "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12"
-        )}
+      <Hero />      
+      <AboutSection />
+      <SponsorMarquee />
+      <FaqSection
+        Generic_Faq_Category={FAQ_CATEGORY}
+        Generic_Faq_Data={FAQ_DATA}
       />
-    </div>
+    </>
   );
 };
 
